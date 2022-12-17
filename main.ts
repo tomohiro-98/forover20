@@ -69,8 +69,8 @@ control.onEvent(EventBusSource.MES_DPAD_CONTROLLER_ID, EventBusValue.MICROBIT_EV
         basic.showLeds(`
             . . . . .
             # # . # #
-            # # . # #
-            # # . # #
+            . # . # #
+            . # . # #
             . . . . .
             `)
         pins.digitalWritePin(DigitalPin.P13, 0)
