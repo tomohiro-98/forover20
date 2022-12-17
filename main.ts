@@ -22,28 +22,7 @@ bluetooth.onBluetoothDisconnected(function () {
         `)
 })
 input.onButtonPressed(Button.A, function () {
-    basic.showLeds(`
-        . . # . .
-        . # . # .
-        . # # # .
-        . # . # .
-        . # . # .
-        `)
-    if (pins.digitalReadPin(DigitalPin.P1) == 1 && pins.digitalReadPin(DigitalPin.P2) == 1) {
-        basic.showString("W")
-    } else if (pins.digitalReadPin(DigitalPin.P1) == 1) {
-        basic.showString("R")
-    } else if (pins.digitalReadPin(DigitalPin.P2) == 1) {
-        basic.showString("L")
-    } else {
-        basic.showLeds(`
-            . . . . .
-            # # . # #
-            # # . # #
-            # # . # #
-            . . . . .
-            `)
-    }
+	
 })
 input.onButtonPressed(Button.B, function () {
     basic.showLeds(`
@@ -53,7 +32,6 @@ input.onButtonPressed(Button.B, function () {
         . # . # .
         . # # # .
         `)
-    music.playMelody("E G C5 - G A G - ", 120)
 })
 control.onEvent(EventBusSource.MES_DPAD_CONTROLLER_ID, EventBusValue.MICROBIT_EVT_ANY, function () {
     if (control.eventValue() == EventBusValue.MES_DPAD_BUTTON_A_DOWN) {
@@ -69,8 +47,8 @@ control.onEvent(EventBusSource.MES_DPAD_CONTROLLER_ID, EventBusValue.MICROBIT_EV
         basic.showLeds(`
             . . . . .
             # # . # #
-            . # . # #
-            . # . # #
+            # # . # #
+            # # . # #
             . . . . .
             `)
         pins.digitalWritePin(DigitalPin.P13, 0)
@@ -206,3 +184,4 @@ bluetooth.startIOPinService()
 bluetooth.startLEDService()
 basic.showString("Hello")
 pins.digitalWritePin(DigitalPin.P12, 1)
+music.playMelody("E G C5 - G A G - ", 120)
