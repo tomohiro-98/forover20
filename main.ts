@@ -1,5 +1,5 @@
 // 初期設定
-// ドC　レD　ミE　ファF　ソG　ラA　シ　ドC5
+// ドC　レD　ミE　ファF　ソG　ラA　シB　ドC5
 // ミソドソラソ
 bluetooth.startIOPinService();
 bluetooth.startLEDService();
@@ -32,7 +32,7 @@ bluetooth.onBluetoothDisconnected(function () {
 
 // リモコン処理 
 control.onEvent(EventBusSource.MES_DPAD_CONTROLLER_ID, EventBusValue.MICROBIT_EVT_ANY, function () {
-    if (control.eventValue() == EventBusValue.MES_DPAD_BUTTON_A_DOWN) {
+    if (control.eventValue() === EventBusValue.MES_DPAD_BUTTON_A_DOWN) {
         basic.showLeds(`
             . . # . .
             . # # # .
@@ -41,7 +41,7 @@ control.onEvent(EventBusSource.MES_DPAD_CONTROLLER_ID, EventBusValue.MICROBIT_EV
             . # # # .
             `)
         pins.digitalWritePin(DigitalPin.P13, 1)
-    } else if (control.eventValue() == EventBusValue.MES_DPAD_BUTTON_A_UP) {
+    } else if (control.eventValue() === EventBusValue.MES_DPAD_BUTTON_A_UP) {
         basic.showLeds(`
             . . . . .
             # # . # #
@@ -50,7 +50,7 @@ control.onEvent(EventBusSource.MES_DPAD_CONTROLLER_ID, EventBusValue.MICROBIT_EV
             . . . . .
             `)
         pins.digitalWritePin(DigitalPin.P13, 0)
-    } else if (control.eventValue() == EventBusValue.MES_DPAD_BUTTON_B_DOWN) {
+    } else if (control.eventValue() === EventBusValue.MES_DPAD_BUTTON_B_DOWN) {
         basic.showLeds(`
             . # # # .
             . . # . .
@@ -59,7 +59,7 @@ control.onEvent(EventBusSource.MES_DPAD_CONTROLLER_ID, EventBusValue.MICROBIT_EV
             . . # . .
             `)
         pins.digitalWritePin(DigitalPin.P14, 1)
-    } else if (control.eventValue() == EventBusValue.MES_DPAD_BUTTON_B_UP) {
+    } else if (control.eventValue() === EventBusValue.MES_DPAD_BUTTON_B_UP) {
         basic.showLeds(`
             . . . . .
             # # . # #
@@ -68,7 +68,7 @@ control.onEvent(EventBusSource.MES_DPAD_CONTROLLER_ID, EventBusValue.MICROBIT_EV
             . . . . .
             `)
         pins.digitalWritePin(DigitalPin.P14, 0)
-    } else if (control.eventValue() == EventBusValue.MES_DPAD_BUTTON_C_DOWN) {
+    } else if (control.eventValue() === EventBusValue.MES_DPAD_BUTTON_C_DOWN) {
         basic.showLeds(`
             . . . . .
             # . . # .
@@ -77,7 +77,7 @@ control.onEvent(EventBusSource.MES_DPAD_CONTROLLER_ID, EventBusValue.MICROBIT_EV
             . . . . .
             `)
         pins.digitalWritePin(DigitalPin.P15, 1)
-    } else if (control.eventValue() == EventBusValue.MES_DPAD_BUTTON_C_UP) {
+    } else if (control.eventValue() === EventBusValue.MES_DPAD_BUTTON_C_UP) {
         basic.showLeds(`
             . . . . .
             # # . # #
@@ -86,7 +86,7 @@ control.onEvent(EventBusSource.MES_DPAD_CONTROLLER_ID, EventBusValue.MICROBIT_EV
             . . . . .
             `)
         pins.digitalWritePin(DigitalPin.P15, 0)
-    } else if (control.eventValue() == EventBusValue.MES_DPAD_BUTTON_D_DOWN) {
+    } else if (control.eventValue() === EventBusValue.MES_DPAD_BUTTON_D_DOWN) {
         basic.showLeds(`
             . . . . .
             . # . . #
@@ -95,7 +95,7 @@ control.onEvent(EventBusSource.MES_DPAD_CONTROLLER_ID, EventBusValue.MICROBIT_EV
             . . . . .
             `)
         pins.digitalWritePin(DigitalPin.P16, 1)
-    } else if (control.eventValue() == EventBusValue.MES_DPAD_BUTTON_D_UP) {
+    } else if (control.eventValue() === EventBusValue.MES_DPAD_BUTTON_D_UP) {
         basic.showLeds(`
             . . . . .
             # # . # #
@@ -104,7 +104,7 @@ control.onEvent(EventBusSource.MES_DPAD_CONTROLLER_ID, EventBusValue.MICROBIT_EV
             . . . . .
             `)
         pins.digitalWritePin(DigitalPin.P16, 0)
-    } else if (control.eventValue() == EventBusValue.MES_DPAD_BUTTON_1_DOWN) {
+    } else if (control.eventValue() === EventBusValue.MES_DPAD_BUTTON_1_DOWN) {
         basic.showLeds(`
             . . . . .
             . . # . .
@@ -113,7 +113,7 @@ control.onEvent(EventBusSource.MES_DPAD_CONTROLLER_ID, EventBusValue.MICROBIT_EV
             . . . . .
             `)
         pins.analogWritePin(AnalogPin.P13, 512)
-    } else if (control.eventValue() == EventBusValue.MES_DPAD_BUTTON_1_UP) {
+    } else if (control.eventValue() === EventBusValue.MES_DPAD_BUTTON_1_UP) {
         basic.showLeds(`
             . . . . .
             # # . # #
@@ -122,7 +122,7 @@ control.onEvent(EventBusSource.MES_DPAD_CONTROLLER_ID, EventBusValue.MICROBIT_EV
             . . . . .
             `)
         pins.analogWritePin(AnalogPin.P13, 0)
-    } else if (control.eventValue() == EventBusValue.MES_DPAD_BUTTON_2_DOWN) {
+    } else if (control.eventValue() === EventBusValue.MES_DPAD_BUTTON_2_DOWN) {
         basic.showLeds(`
             . . . . .
             # # # # #
@@ -131,7 +131,7 @@ control.onEvent(EventBusSource.MES_DPAD_CONTROLLER_ID, EventBusValue.MICROBIT_EV
             . . . . .
             `)
         pins.analogWritePin(AnalogPin.P14, 512)
-    } else if (control.eventValue() == EventBusValue.MES_DPAD_BUTTON_2_UP) {
+    } else if (control.eventValue() === EventBusValue.MES_DPAD_BUTTON_2_UP) {
         basic.showLeds(`
             . . . . .
             # # . # #
@@ -140,7 +140,7 @@ control.onEvent(EventBusSource.MES_DPAD_CONTROLLER_ID, EventBusValue.MICROBIT_EV
             . . . . .
             `)
         pins.analogWritePin(AnalogPin.P14, 0)
-    } else if (control.eventValue() == EventBusValue.MES_DPAD_BUTTON_3_DOWN) {
+    } else if (control.eventValue() === EventBusValue.MES_DPAD_BUTTON_3_DOWN) {
         basic.showLeds(`
             . # . . .
             . # # . .
@@ -149,7 +149,7 @@ control.onEvent(EventBusSource.MES_DPAD_CONTROLLER_ID, EventBusValue.MICROBIT_EV
             . # . . .
             `)
         pins.analogWritePin(AnalogPin.P15, 355)
-    } else if (control.eventValue() == EventBusValue.MES_DPAD_BUTTON_3_UP) {
+    } else if (control.eventValue() === EventBusValue.MES_DPAD_BUTTON_3_UP) {
         basic.showLeds(`
             . . . . .
             # # . # #
@@ -158,7 +158,7 @@ control.onEvent(EventBusSource.MES_DPAD_CONTROLLER_ID, EventBusValue.MICROBIT_EV
             . . . . .
             `)
         pins.analogWritePin(AnalogPin.P15, 0)
-    } else if (control.eventValue() == EventBusValue.MES_DPAD_BUTTON_4_DOWN) {
+    } else if (control.eventValue() === EventBusValue.MES_DPAD_BUTTON_4_DOWN) {
         basic.showLeds(`
             . . . # .
             . . # # .
@@ -167,7 +167,7 @@ control.onEvent(EventBusSource.MES_DPAD_CONTROLLER_ID, EventBusValue.MICROBIT_EV
             . . . # .
             `)
         pins.analogWritePin(AnalogPin.P16, 355)
-    } else if (control.eventValue() == EventBusValue.MES_DPAD_BUTTON_4_UP) {
+    } else if (control.eventValue() === EventBusValue.MES_DPAD_BUTTON_4_UP) {
         basic.showLeds(`
             . . . . .
             # # . # #
@@ -202,7 +202,7 @@ input.onButtonPressed(Button.B, function () {
 });
 
 // タッチセンサー処理
-// ドC　レD　ミE　ファF　ソG　ラA　シ　ドC5
+// ドC　レD　ミE　ファF　ソG　ラA　シB　ドC5
 input.onLogoEvent(TouchButtonEvent.Touched, function () {
     music.playMelody("E E E - E E E - ", 120)
     music.playMelody("E G C D E - - - ", 120)
