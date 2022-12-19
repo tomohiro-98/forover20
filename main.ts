@@ -1,8 +1,11 @@
 // 初期設定
+// ドC　レD　ミE　ファF　ソG　ラA　シ　ドC5
+// ミソドソラソ
 bluetooth.startIOPinService();
 bluetooth.startLEDService();
 basic.showString("Hello");
 music.playMelody("E G C5 - G A G - ", 120);
+// 赤外線制御
 // pins.digitalWritePin(DigitalPin.P12, 1);
 
 // 接続処理
@@ -199,6 +202,7 @@ input.onButtonPressed(Button.B, function () {
 });
 
 // タッチセンサー処理
+// ドC　レD　ミE　ファF　ソG　ラA　シ　ドC5
 input.onLogoEvent(TouchButtonEvent.Touched, function () {
     music.playMelody("E E E - E E E - ", 120)
     music.playMelody("E G C D E - - - ", 120)
