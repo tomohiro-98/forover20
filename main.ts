@@ -1,8 +1,11 @@
-input.onLogoEvent(TouchButtonEvent.Touched, function () {
-    music.playMelody("E E E - E E E - ", 120)
-    music.playMelody("E G C D E - - - ", 120)
-    music.playMelody("F F F F F E E E ", 120)
-})
+// 初期設定
+bluetooth.startIOPinService();
+bluetooth.startLEDService();
+basic.showString("Hello");
+music.playMelody("E G C5 - G A G - ", 120);
+// pins.digitalWritePin(DigitalPin.P12, 1);
+
+// 接続処理
 bluetooth.onBluetoothConnected(function () {
     basic.showLeds(`
         . # . # .
@@ -11,7 +14,9 @@ bluetooth.onBluetoothConnected(function () {
         # . . . #
         . # # # .
         `)
-})
+});
+
+// 切断処理
 bluetooth.onBluetoothDisconnected(function () {
     basic.showLeds(`
         . . . . .
@@ -20,19 +25,9 @@ bluetooth.onBluetoothDisconnected(function () {
         . . . . .
         . # # # .
         `)
-})
-input.onButtonPressed(Button.A, function () {
-	
-})
-input.onButtonPressed(Button.B, function () {
-    basic.showLeds(`
-        . # # # .
-        . # . # .
-        . # # . .
-        . # . # .
-        . # # # .
-        `)
-})
+});
+
+// リモコン処理 
 control.onEvent(EventBusSource.MES_DPAD_CONTROLLER_ID, EventBusValue.MICROBIT_EVT_ANY, function () {
     if (control.eventValue() == EventBusValue.MES_DPAD_BUTTON_A_DOWN) {
         basic.showLeds(`
@@ -179,9 +174,33 @@ control.onEvent(EventBusSource.MES_DPAD_CONTROLLER_ID, EventBusValue.MICROBIT_EV
             `)
         pins.analogWritePin(AnalogPin.P16, 0)
     }
-})
-bluetooth.startIOPinService()
-bluetooth.startLEDService()
-basic.showString("Hello")
-pins.digitalWritePin(DigitalPin.P12, 1)
-music.playMelody("E G C5 - G A G - ", 120)
+})；
+
+// Aボタン処理
+input.onButtonPressed(Button.A, function () {
+    basic.showLeds(`
+        . . # . .
+        . # . # .
+        . # # # .
+        . # . # .
+        . # . # .
+        `)
+});	
+	
+// Bボタン処理
+input.onButtonPressed(Button.B, function () {
+    basic.showLeds(`
+        . # # # .
+        . # . # .
+        . # # . .
+        . # . # .
+        . # # # .
+        `)
+});
+
+// タッチセンサー処理
+input.onLogoEvent(TouchButtonEvent.Touched, function () {
+    music.playMelody("E E E - E E E - ", 120)
+    music.playMelody("E G C D E - - - ", 120)
+    music.playMelody("F F F F F E E E ", 120)
+})；
